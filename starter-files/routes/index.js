@@ -3,6 +3,6 @@ const router = express.Router();
 const storeController = require('../controllers/store.controller');
 
 // Do work here
-router.get('/', storeController.homepage);
+router.get('/', storeController.middleware, storeController.homepage);
 
 module.exports = router;
