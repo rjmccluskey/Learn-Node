@@ -9,3 +9,13 @@ exports.homepage = (req, res) => {
         name: req.name
     });
 }
+
+exports.addForm = (req, res) => {
+    res.render('editStore', {
+        title: 'Add a new store'
+    });
+}
+
+exports.addStore = (req, res) => {
+    res.json(req.body);
+}
