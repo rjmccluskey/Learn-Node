@@ -1,3 +1,7 @@
+const mongoose = require('mongoose');
+
+const Store = mongoose.model('Store');
+
 exports.middleware = (req, res, next) => {
     req.name = 'Rich';
     next();
@@ -16,6 +20,8 @@ exports.addForm = (req, res) => {
     });
 }
 
-exports.addStore = (req, res) => {
-    res.json(req.body);
+exports.addStore = async (req, res) => {
+    const store = new Store(req.body);
+    await store.save();
+    res.redirect('/');
 }
