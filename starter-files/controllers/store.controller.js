@@ -25,3 +25,8 @@ exports.addStore = async (req, res) => {
     req.flash('success', `Created ${store.name}. Would you like to leave a review?`);
     res.redirect(`/store/${store.slug}`);
 }
+
+exports.getStores = async (req, res) => {
+    const stores = await Store.find();
+    res.render('stores', {title: 'Stores', stores});
+}
